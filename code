@@ -12,7 +12,7 @@ function createRATemplate() {
     // To avoid duplicate copies being created every time, only create a copy if confirm column is blank. Once created, set confirm column to the date
     if (row[11] === ''){
       
-      if (row[1] === 'RW Reception'){
+      if (row[1] === 'Nursery'){
         
         // Get the ID of the folder to save the new copies in
         var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7X(paste your own folder ID here!)j8XgHVDBBpr');
@@ -56,7 +56,7 @@ function createRATemplate() {
         
       }
       
-      if (row[1] === 'BV Reception'){
+      if (row[1] === 'Reception'){
         
         // Get the ID of the folder to save the new copies in
         var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7XKej90(paste your own folder ID here!)PPj8XgHVDBBpr');
@@ -414,12 +414,12 @@ function emailFiles() {
     
     var subjectLine = 'Educational Visit - ' + row[1] + ' to ' + row[2] + ' on ' + niceVisitDate;
   
-    var plainBodyLunches = 'Hi ****** and teachers. Please see attached Risk Assessment for the above visit: ' + ssNewURL + ' Here is the letter that can either be printed the old fashioned way or sent out with a Google Form:' + LetterURL + ' Also please pass this dinner request on to the kitchen staff: ' + newLunchDocURL + ' Also, YGL remember to evaluate the trip afterwards using this form: https://forms.gle/knUnPa***24NRr8. Maybe snooze this email until 3 days after the visit as a reminder?            Thanks so much. From your helpful BV Google Assistant :D'; 
-    var plainBodyNoLunches = 'Hi ***** and teachers. Please see attached Risk Assessment for the above visit: ' + ssNewURL + ' Here is the letter that can either be printed the old fashioned way or sent out with a Google Form: ' + LetterURL + ' The students will be in school for lunch as normal. Also, YGL remember to evaluate the trip afterwards using this form: https://forms.gle/knUnPaW****4NRr8. Maybe snooze this email until 3 days after the visit as a reminder?             Thanks so much. From your helpful BV Google Assistant :D'; 
+    var plainBodyLunches = 'Hi ****** and teachers. Please see attached Risk Assessment for the above visit: ' + ssNewURL + ' Here is the letter:' + LetterURL + ' Also please pass this dinner request on to the kitchen staff: ' + newLunchDocURL + '  Thanks so much. From your helpful BV Google Assistant :D'; 
+    var plainBodyNoLunches = 'Hi ***** and teachers. Please see attached Risk Assessment for the above visit: ' + ssNewURL + ' Here is the letter: ' + LetterURL + ' The students will be in school for lunch as normal. Thanks so much. From your helpful BV Google Assistant :D'; 
     
     if (row[14] === ''){
       
-      if (row[1] === 'BV Reception') {
+      if (row[1] === 'Nursery') {
         
         if (row[5] === 'Yes'){
           GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyLunches);
@@ -435,7 +435,7 @@ function emailFiles() {
       }
       
       
-      if (row[1] === 'RW Reception') {
+      if (row[1] === 'Reception') {
         
         if (row[5] === 'Yes'){
           GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
