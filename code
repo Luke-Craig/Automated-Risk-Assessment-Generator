@@ -1,0 +1,626 @@
+function createRATemplate() {
+  
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName('Form responses 1');
+  var data = sheet.getRange(2, 1, sheet.getLastRow() - 1, 15).getValues();
+ 
+  
+  // Loops over each row to create a copy of template
+  data.forEach(function(row, i){
+    
+    
+    // To avoid duplicate copies being created every time, only create a copy if confirm column is blank. Once created, set confirm column to the date
+    if (row[11] === ''){
+      
+      if (row[1] === 'RW Reception'){
+        
+        // Get the ID of the folder to save the new copies in
+        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7X(paste your own folder ID here!)j8XgHVDBBpr');
+        
+        // Create a new folder for this trip
+        var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
+        
+        // Get the original template
+        var originalTemplate = DriveApp.getFileById('13hSTN8(paste your own Template ID here!)X7nElwGFHM8');
+        
+        // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
+        var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
+        
+        // Actually makes a copy of the SS
+        var newRACopy = originalTemplate.makeCopy(newCopyName, tripFolder);
+        
+        // Get the ID of the new Copy
+        var newCopyID = newRACopy.getId();
+        
+        // Open the new copy with the ID we just got
+        var ssNew = DocumentApp.openById(newCopyID);
+        
+        // Get the URL link of new file to share in email
+        var ssNewURL = ssNew.getUrl();
+        
+        var body = ssNew.getBody();
+        
+        var niceVisitDate = Utilities.formatDate(row[3], 'GMT', "EEE, d MMM");
+        
+        body.replaceText('{{VISIT_DEST}}', row[2] );
+        body.replaceText('{{VISIT_DATE}}', niceVisitDate );
+        body.replaceText('{{VISIT_LEARNING}}', row[9] );
+        body.replaceText('{{VISIT_DESCRIPTION}}', row[4] );
+        body.replaceText('{{SUPPORT_STAFF}}', row[8] );
+        
+        var d = new Date();
+
+        
+        // i = index or number of loops completed. The first one is the 0th loop so we need to add 2 to also skip heading row - BUT the column is just normal starting from 1!
+        sheet.getRange(i+2, 12).setValue(ssNewURL);
+        
+      }
+      
+      if (row[1] === 'BV Reception'){
+        
+        // Get the ID of the folder to save the new copies in
+        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7XKej90(paste your own folder ID here!)PPj8XgHVDBBpr');
+        
+        // Create a new folder for this trip
+        var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
+        
+        // Get the original template
+        var originalTemplate = DriveApp.getFileById('1X-uyqXo6R2(paste your own Template ID here!)S25fN4O8BpwX8Mw');
+        
+        // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
+        var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
+        
+        // Actually makes a copy of the SS
+        var newRACopy = originalTemplate.makeCopy(newCopyName, tripFolder);
+        
+        // Get the ID of the new Copy
+        var newCopyID = newRACopy.getId();
+        
+        // Open the new copy with the ID we just got
+        var ssNew = DocumentApp.openById(newCopyID);
+        
+        // Get the URL link of new file to share in email
+        var ssNewURL = ssNew.getUrl();
+        
+        var body = ssNew.getBody();
+        
+        var niceVisitDate = Utilities.formatDate(row[3], 'GMT', "EEE, d MMM");
+        
+        body.replaceText('{{VISIT_DEST}}', row[2] );
+        body.replaceText('{{VISIT_DATE}}', niceVisitDate );
+        body.replaceText('{{VISIT_LEARNING}}', row[9] );
+        body.replaceText('{{VISIT_DESCRIPTION}}', row[4] );
+        body.replaceText('{{SUPPORT_STAFF}}', row[8] );
+         
+        var d = new Date();
+        
+        // i = index or number of loops completed. The first one is the 0th loop so we need to add 2 to also skip heading row - BUT the column is just normal starting from 1!
+        sheet.getRange(i+2, 12).setValue(ssNewURL);
+        
+      }
+      
+      
+      if (row[1] === 'Year 1'){
+        
+        // Get the ID of the folder to save the new copies in
+        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx(paste your own folder ID here!)j8XgHVDBBpr');
+        
+        // Create a new folder for this trip
+        var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
+        
+        // Get the original template
+        var originalTemplate = DriveApp.getFileById('1DnklR3BGxG(paste your own Template ID here!)m-8SAraZ_NJE6x0TM1w');
+        
+        // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
+        var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
+        
+        // Actually makes a copy of the SS
+        var newRACopy = originalTemplate.makeCopy(newCopyName, tripFolder);
+        
+        // Get the ID of the new Copy
+        var newCopyID = newRACopy.getId();
+        
+        // Open the new copy with the ID we just got
+        var ssNew = DocumentApp.openById(newCopyID);
+        
+        // Get the URL link of new file to share in email
+        var ssNewURL = ssNew.getUrl();
+        
+        var body = ssNew.getBody();
+        
+        var niceVisitDate = Utilities.formatDate(row[3], 'GMT', "EEE, d MMM");
+        
+        body.replaceText('{{VISIT_DEST}}', row[2] );
+        body.replaceText('{{VISIT_DATE}}', niceVisitDate );
+        body.replaceText('{{VISIT_LEARNING}}', row[9] );
+        body.replaceText('{{VISIT_DESCRIPTION}}', row[4] );
+        body.replaceText('{{SUPPORT_STAFF}}', row[8] );
+        
+        var d = new Date();
+        
+        // i = index or number of loops completed. The first one is the 0th loop so we need to add 2 to also skip heading row - BUT the column is just normal starting from 1!
+        sheet.getRange(i+2, 12).setValue(ssNewURL);
+        
+      }
+      
+      
+      
+      if (row[1] === 'Year 2'){
+        
+        // Get the ID of the folder to save the new copies in
+        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7XKe(paste your own folder ID here!)gHVDBBpr');
+        
+        // Create a new folder for this trip
+        var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
+        
+        // Get the original template
+        var originalTemplate = DriveApp.getFileById('1Rha0gIAbaFD9S(paste your own Template ID here!)ubU42ERX1I9T04');
+        
+        // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
+        var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
+        
+        // Actually makes a copy of the SS
+        var newRACopy = originalTemplate.makeCopy(newCopyName, tripFolder);
+        
+        // Get the ID of the new Copy
+        var newCopyID = newRACopy.getId();
+        
+        // Open the new copy with the ID we just got
+        var ssNew = DocumentApp.openById(newCopyID);
+        
+        // Get the URL link of new file to share in email
+        var ssNewURL = ssNew.getUrl();
+        
+        var body = ssNew.getBody();
+        
+        var niceVisitDate = Utilities.formatDate(row[3], 'GMT', "EEE, d MMM");
+        
+        body.replaceText('{{VISIT_DEST}}', row[2] );
+        body.replaceText('{{VISIT_DATE}}', niceVisitDate );
+        body.replaceText('{{VISIT_LEARNING}}', row[9] );
+        body.replaceText('{{VISIT_DESCRIPTION}}', row[4] );
+        body.replaceText('{{SUPPORT_STAFF}}', row[8] );
+        
+        var d = new Date();
+        
+        // i = index or number of loops completed. The first one is the 0th loop so we need to add 2 to also skip heading row - BUT the column is just normal starting from 1!
+        sheet.getRange(i+2, 12).setValue(ssNewURL);
+        
+      }
+      
+      
+      if (row[1] === 'Year 3'){
+        
+        // Get the ID of the folder to save the new copies in
+        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7(paste your own folder ID here!)8XgHVDBBpr');
+        
+        // Create a new folder for this trip
+        var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
+        
+        // Get the original template
+        var originalTemplate = DriveApp.getFileById('1SAFsheYjqV(paste your own Template ID here!)BTeIUGox3gfOzja8');
+        
+        // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
+        var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
+        
+        // Actually makes a copy of the SS
+        var newRACopy = originalTemplate.makeCopy(newCopyName, tripFolder);
+        
+        // Get the ID of the new Copy
+        var newCopyID = newRACopy.getId();
+        
+        // Open the new copy with the ID we just got
+        var ssNew = DocumentApp.openById(newCopyID);
+        
+        // Get the URL link of new file to share in email
+        var ssNewURL = ssNew.getUrl();
+        
+        var body = ssNew.getBody();
+        
+        var niceVisitDate = Utilities.formatDate(row[3], 'GMT', "EEE, d MMM");
+        
+        body.replaceText('{{VISIT_DEST}}', row[2] );
+        body.replaceText('{{VISIT_DATE}}', niceVisitDate );
+        body.replaceText('{{VISIT_LEARNING}}', row[9] );
+        body.replaceText('{{VISIT_DESCRIPTION}}', row[4] );
+        body.replaceText('{{SUPPORT_STAFF}}', row[8] );
+         
+        var d = new Date();
+        
+        // i = index or number of loops completed. The first one is the 0th loop so we need to add 2 to also skip heading row - BUT the column is just normal starting from 1!
+        sheet.getRange(i+2, 12).setValue(ssNewURL);
+        
+      }
+      
+      if (row[1] === 'Year 4'){
+        
+        // Get the ID of the folder to save the new copies in
+        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7XKej(paste your own folder ID here!)HVDBBpr');
+        
+        // Create a new folder for this trip
+        var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
+        
+        // Get the original template
+        var originalTemplate = DriveApp.getFileById('152zrfvJcx4T(paste your own Template ID here!)e1C21V_33pOJKT8');
+        
+        // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
+        var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
+        
+        // Actually makes a copy of the SS
+        var newRACopy = originalTemplate.makeCopy(newCopyName, tripFolder);
+        
+        // Get the ID of the new Copy
+        var newCopyID = newRACopy.getId();
+        
+        // Open the new copy with the ID we just got
+        var ssNew = DocumentApp.openById(newCopyID);
+        
+        // Get the URL link of new file to share in email
+        var ssNewURL = ssNew.getUrl();
+        
+        var body = ssNew.getBody();
+        
+        var niceVisitDate = Utilities.formatDate(row[3], 'GMT', "EEE, d MMM");
+        
+        body.replaceText('{{VISIT_DEST}}', row[2] );
+        body.replaceText('{{VISIT_DATE}}', niceVisitDate );
+        body.replaceText('{{VISIT_LEARNING}}', row[9] );
+        body.replaceText('{{VISIT_DESCRIPTION}}', row[4] );
+        body.replaceText('{{SUPPORT_STAFF}}', row[8] );
+        
+        var d = new Date();
+        
+        // i = index or number of loops completed. The first one is the 0th loop so we need to add 2 to also skip heading row - BUT the column is just normal starting from 1!
+        sheet.getRange(i+2, 12).setValue(ssNewURL);
+        
+      }
+      
+      if (row[1] === 'Year 5'){
+        
+        // Get the ID of the folder to save the new copies in
+        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7X(paste your own folder ID here!)HVDBBpr');
+        
+        // Create a new folder for this trip
+        var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
+        
+        // Get the original template
+        var originalTemplate = DriveApp.getFileById('1G7Fgce_dUCKhlO(paste your own Template ID here!)CKQZ0jQ1a1Otdt_Q');
+        
+        // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
+        var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
+        
+        // Actually makes a copy of the SS
+        var newRACopy = originalTemplate.makeCopy(newCopyName, tripFolder);
+        
+        // Get the ID of the new Copy
+        var newCopyID = newRACopy.getId();
+        
+        // Open the new copy with the ID we just got
+        var ssNew = DocumentApp.openById(newCopyID);
+        
+        // Get the URL link of new file to share in email
+        var ssNewURL = ssNew.getUrl();
+        
+        var body = ssNew.getBody();
+        
+        var niceVisitDate = Utilities.formatDate(row[3], 'GMT', "EEE, d MMM");
+        
+        body.replaceText('{{VISIT_DEST}}', row[2] );
+        body.replaceText('{{VISIT_DATE}}', niceVisitDate );
+        body.replaceText('{{VISIT_LEARNING}}', row[9] );
+        body.replaceText('{{VISIT_DESCRIPTION}}', row[4] );
+        body.replaceText('{{SUPPORT_STAFF}}', row[8] );
+          
+        var d = new Date();
+        
+        // i = index or number of loops completed. The first one is the 0th loop so we need to add 2 to also skip heading row - BUT the column is just normal starting from 1!
+        sheet.getRange(i+2, 12).setValue(ssNewURL);
+        
+      }
+      
+      if (row[1] === 'Year 6'){
+        
+        // Get the ID of the folder to save the new copies in
+        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7XK(paste your own folder ID here!)j8XgHVDBBpr');
+        
+        // Create a new folder for this trip
+        var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
+        
+        // Get the original template
+        var originalTemplate = DriveApp.getFileById('1S6mM3NEl9(paste your own Template ID here!)47UqgHc7u3xRwNwSzE');
+        
+        // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
+        var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
+        
+        // Actually makes a copy of the SS
+        var newRACopy = originalTemplate.makeCopy(newCopyName, tripFolder);
+        
+        // Get the ID of the new Copy
+        var newCopyID = newRACopy.getId();
+        
+        // Open the new copy with the ID we just got
+        var ssNew = DocumentApp.openById(newCopyID);
+        
+        // Get the URL link of new file to share in email
+        var ssNewURL = ssNew.getUrl();
+        
+        var body = ssNew.getBody();
+        
+        var niceVisitDate = Utilities.formatDate(row[3], 'GMT', "EEE, d MMM");
+        
+        body.replaceText('{{VISIT_DEST}}', row[2] );
+        body.replaceText('{{VISIT_DATE}}', niceVisitDate );
+        body.replaceText('{{VISIT_LEARNING}}', row[9] );
+        body.replaceText('{{VISIT_DESCRIPTION}}', row[4] );
+        body.replaceText('{{SUPPORT_STAFF}}', row[8] );
+        
+        var d = new Date();
+        
+        // i = index or number of loops completed. The first one is the 0th loop so we need to add 2 to also skip heading row - BUT the column is just normal starting from 1!
+        sheet.getRange(i+2, 12).setValue(ssNewURL);
+        
+      }
+      
+      
+      createLetter(row, tripFolder, d, sheet, i);
+      
+      if (row[5] === 'Yes'){
+        
+        // If they will be out for lunch and need to let the office know, create a lunch request and put the URL in the Sheet
+        packedLunchRequest(row, tripFolder, sheet, i);
+       
+      }
+      
+      else {
+        
+        // If they don't need lunches, no need to create the Doc, just put N/A in the Sheet
+        sheet.getRange(i+2, 13).setValue('N/A');
+        
+      }
+      
+      emailFiles();
+      createCalendarEvent();
+        
+    }
+    
+     
+     
+  });  
+  
+}
+
+
+function emailFiles() {
+  
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName('Form responses 1');
+  var data = sheet.getRange(2, 1, sheet.getLastRow() - 1, 15).getValues();
+ 
+  
+  
+  // Loops over each row to create a copy of template
+  data.forEach(function(row, i){
+    
+    
+    
+    // Create draft including the lunch request to Marisa
+    var LetterURL = row[13];
+    var ssNewURL = row[11];
+    var newLunchDocURL = row[12];
+  
+    
+    
+    var niceVisitDate = Utilities.formatDate(row[3], 'GMT', "EEE, d MMM");
+    
+    var subjectLine = 'Educational Visit - ' + row[1] + ' to ' + row[2] + ' on ' + niceVisitDate;
+  
+    var plainBodyLunches = 'Hi ****** and teachers. Please see attached Risk Assessment for the above visit: ' + ssNewURL + ' Here is the letter that can either be printed the old fashioned way or sent out with a Google Form:' + LetterURL + ' Also please pass this dinner request on to the kitchen staff: ' + newLunchDocURL + ' Also, YGL remember to evaluate the trip afterwards using this form: https://forms.gle/knUnPa***24NRr8. Maybe snooze this email until 3 days after the visit as a reminder?            Thanks so much. From your helpful BV Google Assistant :D'; 
+    var plainBodyNoLunches = 'Hi ***** and teachers. Please see attached Risk Assessment for the above visit: ' + ssNewURL + ' Here is the letter that can either be printed the old fashioned way or sent out with a Google Form: ' + LetterURL + ' The students will be in school for lunch as normal. Also, YGL remember to evaluate the trip afterwards using this form: https://forms.gle/knUnPaW****4NRr8. Maybe snooze this email until 3 days after the visit as a reminder?             Thanks so much. From your helpful BV Google Assistant :D'; 
+    
+    if (row[14] === ''){
+      
+      if (row[1] === 'BV Reception') {
+        
+        if (row[5] === 'Yes'){
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);    
+        }
+        else {
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);
+          
+        }
+      }
+      
+      
+      if (row[1] === 'RW Reception') {
+        
+        if (row[5] === 'Yes'){
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);    
+        }
+        else {
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);
+          
+        }
+      }
+      
+      if (row[1] === 'Year 1') {
+        
+        if (row[5] === 'Yes'){
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);    
+        }
+        else {
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);
+          
+        }
+      }
+      
+      if (row[1] === 'Year 2') {
+        
+        if (row[5] === 'Yes'){
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);    
+        }
+        else {
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);
+          
+        }
+      }
+      
+      if (row[1] === 'Year 3') {
+        
+        if (row[5] === 'Yes'){
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);    
+        }
+        else {
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);
+          
+        }
+      }
+      
+      if (row[1] === 'Year 4') {
+        
+        if (row[5] === 'Yes'){
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);    
+        }
+        else {
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);
+          
+        }
+      }
+      
+      if (row[1] === 'Year 5') {
+        
+        if (row[5] === 'Yes'){
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);    
+        }
+        else {
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);
+          
+        }
+      }
+      
+       if (row[1] === 'Year 6') {
+        
+        if (row[5] === 'Yes'){
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);    
+        }
+        else {
+          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          var d = new Date();
+          sheet.getRange(i+2, 15).setValue(d);
+          
+        }
+      }
+      
+    } 
+  });
+}
+
+function createLetter(row, tripFolder, d, sheet, i) {
+  
+  var originalDoc = DriveApp.getFileById('1eR_p4j******* put your own template ID here ********i3OTSwYItk');
+  var newDoc = originalDoc.makeCopy('Letter for ' + row[1] + ' visit to ' + row[2], tripFolder); 
+  var newLetterID = newDoc.getId();
+  var newLetterDoc = DocumentApp.openById(newLetterID);
+  var newLetterDocURL = newLetterDoc.getUrl();
+  var body = newLetterDoc.getBody();
+  var niceCurrentDate = Utilities.formatDate(d, 'GMT', "EEE, d MMM");
+  var niceVisitDate = Utilities.formatDate(row[3], 'GMT', "EEE, d MMM");
+  
+  body.replaceText('{{TODAY_DATE}}', niceCurrentDate);
+  body.replaceText('{{VISIT_DESTINATION}}', row[2]);
+  body.replaceText('{{VISIT_DATE}}', niceVisitDate);
+  body.replaceText('{{YEAR_GROUP}}', row[1]);
+  body.replaceText('{{VISIT_DESCRIPTION}}', row[9]);
+  
+  newLetterDoc.saveAndClose();
+  sheet.getRange(i+2, 14).setValue(newLetterDocURL);
+
+ 
+}
+
+
+function packedLunchRequest(row, tripFolder, sheet, i) {
+  
+  var originalDoc = DriveApp.getFileById('1LAxUi21_fRX****** put your own template ID here ******GpmMPFvHBy2I');  
+  var newCopy = originalDoc.makeCopy('Packed Lunch Request for ' + row[1] + ' visiting ' + row[2], tripFolder);
+  var newLunchID = newCopy.getId();
+  var newLunchDoc = DocumentApp.openById(newLunchID);
+  var body = newLunchDoc.getBody();
+  var niceVisitDate = Utilities.formatDate(row[3], 'GMT', "EEE, d MMM");
+  var newLunchDocURL = newLunchDoc.getUrl();
+  
+  body.replaceText("{{YEAR_GROUP}}", row[1]);
+  body.replaceText("{{VISIT_DESTINATION}}", row[2]);
+  body.replaceText("{{VISIT_DATE}}", niceVisitDate);
+  body.replaceText("{{PACKED_LUNCHES}}", row[6]);
+  
+  newLunchDoc.saveAndClose();
+  
+  sheet.getRange(i+2, 13).setValue(newLunchDocURL);
+  
+  
+  
+}
+
+
+function createCalendarEvent() {
+  
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName('Form responses 1');
+  var data = sheet.getRange(2, 1, sheet.getLastRow() - 1, 15).getValues();
+  
+  
+  // Loops over each row to add event to BV Calendar
+  data.forEach(function(row, i){
+    
+    var options = {description: row[4] + ' **************************** Risk Assessment: ' + row[11] + '  Letter to Parents: ' + row[13] + '  Dinner Request: ' + row[12]}
+    var cal = CalendarApp.getCalendarById('***** put your own calendar ID here *********l8@group.calendar.google.com');
+    var d = new Date();
+   // Logger.log(d);
+    
+    // To avoid duplicate events being created every time, only create event if confirm column is blank. Once created, set confirm column to the date
+    if (row[10] === ''){
+      cal.createAllDayEvent(row[1] + ' out on a visit to ' + row[2], row[3], options);
+      
+      // i = index or number of loops completed. The first one is the 0th loop so we need to add 2 to also skip heading row
+      sheet.getRange(i+2, 11).setValue(d);
+      
+    }
+    
+  });  
+  
+  
+  
+}
+
+
+
