@@ -1,3 +1,47 @@
+// folder in Drive where all of the files will be saved:
+
+var driveFolderID = ' REPLACE THIS TEXT WITH FOLDER ID ';
+
+    
+// calendar ID where the events will be created - it looks like an email address - found in Calendar under Settings and sharing:
+
+var calendarID = ' REPLACE THIS TEXT WITH CALENDAR ID ';
+
+
+// letter template:
+
+var letterTemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
+
+
+// dinner request template:
+
+var dinnerRequestID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
+
+
+// risk assessment templates for each year group:
+
+var nurseryRATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
+var receptionRATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
+var year1RATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
+var year2RATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID '; 
+var year3RATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
+var year4RATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
+var year5RATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
+var year6RATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
+
+
+// email addresses to send all these documents to - put full email addresses inbetween the ' ' and separated by a semi colon:
+
+var nurseryEmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES ';
+var receptionEmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES ';
+var year1EmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES ';
+var year2EmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES '; 
+var year3EmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES ';
+var year4EmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES ';
+var year5EmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES ';
+var year6EmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES ';
+
+
 function createRATemplate() {
   
   var ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -15,13 +59,13 @@ function createRATemplate() {
       if (row[1] === 'Nursery'){
         
         // Get the ID of the folder to save the new copies in
-        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7X(paste your own folder ID here!)j8XgHVDBBpr');
+        var edVisitFolder = DriveApp.getFolderById(driveFolderID);
         
         // Create a new folder for this trip
         var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
         
         // Get the original template
-        var originalTemplate = DriveApp.getFileById('13hSTN8(paste your own Template ID here!)X7nElwGFHM8');
+        var originalTemplate = DriveApp.getFileById(nurseryRATemplateID);
         
         // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
         var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
@@ -59,13 +103,13 @@ function createRATemplate() {
       if (row[1] === 'Reception'){
         
         // Get the ID of the folder to save the new copies in
-        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7XKej90(paste your own folder ID here!)PPj8XgHVDBBpr');
+        var edVisitFolder = DriveApp.getFolderById(driveFolderID);
         
         // Create a new folder for this trip
         var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
         
         // Get the original template
-        var originalTemplate = DriveApp.getFileById('1X-uyqXo6R2(paste your own Template ID here!)S25fN4O8BpwX8Mw');
+        var originalTemplate = DriveApp.getFileById(receptionRATemplateID);
         
         // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
         var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
@@ -103,13 +147,13 @@ function createRATemplate() {
       if (row[1] === 'Year 1'){
         
         // Get the ID of the folder to save the new copies in
-        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx(paste your own folder ID here!)j8XgHVDBBpr');
+        var edVisitFolder = DriveApp.getFolderById(driveFolderID);
         
         // Create a new folder for this trip
         var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
         
         // Get the original template
-        var originalTemplate = DriveApp.getFileById('1DnklR3BGxG(paste your own Template ID here!)m-8SAraZ_NJE6x0TM1w');
+        var originalTemplate = DriveApp.getFileById(year1RATemplateID);
         
         // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
         var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
@@ -148,13 +192,13 @@ function createRATemplate() {
       if (row[1] === 'Year 2'){
         
         // Get the ID of the folder to save the new copies in
-        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7XKe(paste your own folder ID here!)gHVDBBpr');
+        var edVisitFolder = DriveApp.getFolderById(driveFolderID);
         
         // Create a new folder for this trip
         var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
         
         // Get the original template
-        var originalTemplate = DriveApp.getFileById('1Rha0gIAbaFD9S(paste your own Template ID here!)ubU42ERX1I9T04');
+        var originalTemplate = DriveApp.getFileById(year2RATemplateID);
         
         // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
         var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
@@ -192,13 +236,13 @@ function createRATemplate() {
       if (row[1] === 'Year 3'){
         
         // Get the ID of the folder to save the new copies in
-        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7(paste your own folder ID here!)8XgHVDBBpr');
+        var edVisitFolder = DriveApp.getFolderById(driveFolderID);
         
         // Create a new folder for this trip
         var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
         
         // Get the original template
-        var originalTemplate = DriveApp.getFileById('1SAFsheYjqV(paste your own Template ID here!)BTeIUGox3gfOzja8');
+        var originalTemplate = DriveApp.getFileById(year3RATemplateID);
         
         // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
         var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
@@ -235,13 +279,13 @@ function createRATemplate() {
       if (row[1] === 'Year 4'){
         
         // Get the ID of the folder to save the new copies in
-        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7XKej(paste your own folder ID here!)HVDBBpr');
+        var edVisitFolder = DriveApp.getFolderById(driveFolderID);
         
         // Create a new folder for this trip
         var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
         
         // Get the original template
-        var originalTemplate = DriveApp.getFileById('152zrfvJcx4T(paste your own Template ID here!)e1C21V_33pOJKT8');
+        var originalTemplate = DriveApp.getFileById(year4RATemplateID);
         
         // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
         var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
@@ -278,13 +322,13 @@ function createRATemplate() {
       if (row[1] === 'Year 5'){
         
         // Get the ID of the folder to save the new copies in
-        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7X(paste your own folder ID here!)HVDBBpr');
+        var edVisitFolder = DriveApp.getFolderById(driveFolderID);
         
         // Create a new folder for this trip
         var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
         
         // Get the original template
-        var originalTemplate = DriveApp.getFileById('1G7Fgce_dUCKhlO(paste your own Template ID here!)CKQZ0jQ1a1Otdt_Q');
+        var originalTemplate = DriveApp.getFileById(year5RATemplateID);
         
         // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
         var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
@@ -321,13 +365,13 @@ function createRATemplate() {
       if (row[1] === 'Year 6'){
         
         // Get the ID of the folder to save the new copies in
-        var edVisitFolder = DriveApp.getFolderById('1Pm8uNx7XK(paste your own folder ID here!)j8XgHVDBBpr');
+        var edVisitFolder = DriveApp.getFolderById(driveFolderID);
         
         // Create a new folder for this trip
         var tripFolder = edVisitFolder.createFolder(row[1] + ' visit to ' + row[2]);
         
         // Get the original template
-        var originalTemplate = DriveApp.getFileById('1S6mM3NEl9(paste your own Template ID here!)47UqgHc7u3xRwNwSzE');
+        var originalTemplate = DriveApp.getFileById(year6RATemplateID);
         
         // Create a title for new version (EG Risk Assessment for Year 2 visit to British Museum)
         var newCopyName = 'Risk Assessment for ' + row[1] + ' visit to ' + row[2];
@@ -422,12 +466,12 @@ function emailFiles() {
       if (row[1] === 'Nursery') {
         
         if (row[5] === 'Yes'){
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyLunches);
+          GmailApp.createDraft(nurseryEmailAddresses, subjectLine, plainBodyLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);    
         }
         else {
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          GmailApp.createDraft(nurseryEmailAddresses, subjectLine, plainBodyNoLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);
           
@@ -438,12 +482,12 @@ function emailFiles() {
       if (row[1] === 'Reception') {
         
         if (row[5] === 'Yes'){
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          GmailApp.createDraft(receptionEmailAddresses, subjectLine, plainBodyNoLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);    
         }
         else {
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          GmailApp.createDraft(receptionEmailAddresses, subjectLine, plainBodyNoLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);
           
@@ -453,12 +497,12 @@ function emailFiles() {
       if (row[1] === 'Year 1') {
         
         if (row[5] === 'Yes'){
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          GmailApp.createDraft(year1EmailAddresses, subjectLine, plainBodyNoLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);    
         }
         else {
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          GmailApp.createDraft(year1EmailAddresses, subjectLine, plainBodyNoLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);
           
@@ -468,12 +512,12 @@ function emailFiles() {
       if (row[1] === 'Year 2') {
         
         if (row[5] === 'Yes'){
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          GmailApp.createDraft(year2EmailAddresses, subjectLine, plainBodyNoLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);    
         }
         else {
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          GmailApp.createDraft(year2EmailAddresses, subjectLine, plainBodyNoLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);
           
@@ -483,12 +527,12 @@ function emailFiles() {
       if (row[1] === 'Year 3') {
         
         if (row[5] === 'Yes'){
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          GmailApp.createDraft(year3EmailAddresses, subjectLine, plainBodyNoLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);    
         }
         else {
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          GmailApp.createDraft(year3EmailAddresses, subjectLine, plainBodyNoLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);
           
@@ -498,12 +542,12 @@ function emailFiles() {
       if (row[1] === 'Year 4') {
         
         if (row[5] === 'Yes'){
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          GmailApp.createDraft(year4EmailAddresses, subjectLine, plainBodyNoLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);    
         }
         else {
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          GmailApp.createDraft(year4EmailAddresses, subjectLine, plainBodyNoLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);
           
@@ -513,12 +557,12 @@ function emailFiles() {
       if (row[1] === 'Year 5') {
         
         if (row[5] === 'Yes'){
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          GmailApp.createDraft(year5EmailAddresses, subjectLine, plainBodyNoLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);    
         }
         else {
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          GmailApp.createDraft(year5EmailAddresses, subjectLine, plainBodyNoLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);
           
@@ -528,12 +572,12 @@ function emailFiles() {
        if (row[1] === 'Year 6') {
         
         if (row[5] === 'Yes'){
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          GmailApp.createDraft(year6EmailAddresses, subjectLine, plainBodyNoLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);    
         }
         else {
-          GmailApp.createDraft('**** put your recipient email addresses here******; ', subjectLine, plainBodyNoLunches);
+          GmailApp.createDraft(year6EmailAddresses, subjectLine, plainBodyNoLunches);
           var d = new Date();
           sheet.getRange(i+2, 15).setValue(d);
           
@@ -546,7 +590,7 @@ function emailFiles() {
 
 function createLetter(row, tripFolder, d, sheet, i) {
   
-  var originalDoc = DriveApp.getFileById('1eR_p4j******* put your own template ID here ********i3OTSwYItk');
+  var originalDoc = DriveApp.getFileById(letterTemplateID);
   var newDoc = originalDoc.makeCopy('Letter for ' + row[1] + ' visit to ' + row[2], tripFolder); 
   var newLetterID = newDoc.getId();
   var newLetterDoc = DocumentApp.openById(newLetterID);
@@ -570,7 +614,7 @@ function createLetter(row, tripFolder, d, sheet, i) {
 
 function packedLunchRequest(row, tripFolder, sheet, i) {
   
-  var originalDoc = DriveApp.getFileById('1LAxUi21_fRX****** put your own template ID here ******GpmMPFvHBy2I');  
+  var originalDoc = DriveApp.getFileById(dinnerRequestID);  
   var newCopy = originalDoc.makeCopy('Packed Lunch Request for ' + row[1] + ' visiting ' + row[2], tripFolder);
   var newLunchID = newCopy.getId();
   var newLunchDoc = DocumentApp.openById(newLunchID);
@@ -603,7 +647,7 @@ function createCalendarEvent() {
   data.forEach(function(row, i){
     
     var options = {description: row[4] + ' **************************** Risk Assessment: ' + row[11] + '  Letter to Parents: ' + row[13] + '  Dinner Request: ' + row[12]}
-    var cal = CalendarApp.getCalendarById('***** put your own calendar ID here *********l8@group.calendar.google.com');
+    var cal = CalendarApp.getCalendarById(calendarID);
     var d = new Date();
    // Logger.log(d);
     
