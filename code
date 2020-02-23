@@ -1,45 +1,45 @@
 // folder in Drive where all of the files will be saved:
 
-var driveFolderID = ' REPLACE THIS TEXT WITH FOLDER ID ';
+var driveFolderID = 'REPLACE THIS TEXT WITH FOLDER ID';
 
     
 // calendar ID where the events will be created - it looks like an email address - found in Calendar under Settings and sharing:
 
-var calendarID = ' REPLACE THIS TEXT WITH CALENDAR ID ';
+var calendarID = 'REPLACE THIS TEXT WITH CALENDAR ID';
 
 
 // letter template:
 
-var letterTemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
+var letterTemplateID = 'REPLACE THIS TEXT WITH DOCUMENT ID';
 
 
 // dinner request template:
 
-var dinnerRequestID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
+var dinnerRequestID = 'REPLACE THIS TEXT WITH DOCUMENT ID';
 
 
 // risk assessment templates for each year group:
 
-var nurseryRATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
-var receptionRATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
-var year1RATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
-var year2RATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID '; 
-var year3RATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
-var year4RATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
-var year5RATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
-var year6RATemplateID = ' REPLACE THIS TEXT WITH DOCUMENT ID ';
+var nurseryRATemplateID = 'REPLACE THIS TEXT WITH DOCUMENT ID';
+var receptionRATemplateID = 'REPLACE THIS TEXT WITH DOCUMENT ID';
+var year1RATemplateID = 'REPLACE THIS TEXT WITH DOCUMENT ID';
+var year2RATemplateID = 'REPLACE THIS TEXT WITH DOCUMENT ID'; 
+var year3RATemplateID = 'REPLACE THIS TEXT WITH DOCUMENT ID';
+var year4RATemplateID = 'REPLACE THIS TEXT WITH DOCUMENT ID';
+var year5RATemplateID = 'REPLACE THIS TEXT WITH DOCUMENT ID';
+var year6RATemplateID = 'REPLACE THIS TEXT WITH DOCUMENT ID';
 
 
 // email addresses to send all these documents to - put full email addresses inbetween the ' ' and separated by a semi colon:
 
-var nurseryEmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES ';
-var receptionEmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES ';
-var year1EmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES ';
-var year2EmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES '; 
-var year3EmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES ';
-var year4EmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES ';
-var year5EmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES ';
-var year6EmailAddresses = ' REPLACE THIS TEXT WITH EMAIL ADDRESSES ';
+var nurseryEmailAddresses = 'REPLACE THIS TEXT WITH EMAIL ADDRESSES';
+var receptionEmailAddresses = 'REPLACE THIS TEXT WITH EMAIL ADDRESSES';
+var year1EmailAddresses = 'REPLACE THIS TEXT WITH EMAIL ADDRESSES';
+var year2EmailAddresses = 'REPLACE THIS TEXT WITH EMAIL ADDRESSES'; 
+var year3EmailAddresses = 'REPLACE THIS TEXT WITH EMAIL ADDRESSES';
+var year4EmailAddresses = 'REPLACE THIS TEXT WITH EMAIL ADDRESSES';
+var year5EmailAddresses = 'REPLACE THIS TEXT WITH EMAIL ADDRESSES';
+var year6EmailAddresses = 'REPLACE THIS TEXT WITH EMAIL ADDRESSES';
 
 
 function createRATemplate() {
